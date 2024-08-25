@@ -1,5 +1,6 @@
 import { useReducer } from 'react';
 import { Action, FromLanguage, Language, type State } from '../interface/types';
+import { AUTO_LANGUAGE } from '../languages/constanst';
 
 //1.- iniciando estado inicial
 // acciones que puede usar el usaurio para iniciar el estado
@@ -22,6 +23,10 @@ function reducer(state: State, action: Action) {
   
     switch (type) {
       case 'INTERCHANGE_LANGUAGES':
+        // logica des estado dentro del reducer
+        // para que no me regrese el auto al to
+        if (state.fromLanguage === AUTO_LANGUAGE) return state
+
         return {
           ...state,
           fromLanguage: state.toLanguage,
