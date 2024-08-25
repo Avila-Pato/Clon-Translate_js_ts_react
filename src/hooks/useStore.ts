@@ -4,7 +4,6 @@ import { Action, FromLanguage, Language, type State } from '../interface/types';
 //1.- iniciando estado inicial
 // acciones que puede usar el usaurio para iniciar el estado
 
-
 const initialState: State = {
     fromLanguage: 'es',
     toLanguage: 'en',
@@ -101,5 +100,6 @@ return {
     setFromText,
     setResult
     }
+
 
 }
