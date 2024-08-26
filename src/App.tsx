@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Container, Row, Col, Button, Form, Stack } from 'react-bootstrap';
+import { Container, Row, Col, Button, Stack } from 'react-bootstrap';
 
 import './App.css'
 import { useStore } from './hooks/useStore';
@@ -9,6 +9,8 @@ import { AUTO_LANGUAGE } from './languages/constanst';
 import { LanguageSelector } from './components/LanguagesSelector';
 import { SectionType } from './interface/types.d';
 import { TextArea } from './components/textArea';
+import { useEffect } from 'react';
+import { translate } from './services/translate';
 
 export function App() {
   // nos traemos el useStore
@@ -25,6 +27,19 @@ const {
   loading
   
 } = useStore();
+
+
+// creando la renderizacionde la ia con useEfect
+
+useEffect(()=> {
+  if(fromText === '' ) return
+ 
+  translate({ fromLanguage, toLanguage, text: fromText })
+  .then(result => {
+    if(result == null) return
+     setResult(result)
+  }).catch(() => {setResult('ERROR!')})
+}, [fromText])
 
   return (
     <Container fluid> 
