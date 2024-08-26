@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap";
 import { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from "../languages/constanst";
 import React from "react";
-import { FromLanguage, Language } from "../interface/types";
+import { FromLanguage, Language, SectionType } from "../interface/types.d";
 // import { type FC } from "react";
 
 
@@ -10,8 +10,8 @@ import { FromLanguage, Language } from "../interface/types";
 // }
 
 type Props = 
-| {type: 'from', value: FromLanguage,onchange: (language: FromLanguage) => void}
-| {type: 'to', value: Language,onchange: (language: Language) => void}
+| {type: SectionType.From, value: FromLanguage,onchange: (language: FromLanguage) => void}
+| {type: SectionType.To, value: Language,onchange: (language: Language) => void}
 
 
 export const LanguageSelector = ({ onchange, type, value }: Props)  => {
@@ -21,7 +21,7 @@ export const LanguageSelector = ({ onchange, type, value }: Props)  => {
     return (
         <Form.Select aria-label="Selecciona el idioma" onChange={handleChange} value={value}>
             {/* Si el el type es igual al from y el value es igual a AUTO_LANGUAGE detecta el idiomna AUTO_LANGUAGE y lo pone como primer valor del select  */}
-            {type === 'from' && (
+            {type === SectionType.From && (
                 <option value={AUTO_LANGUAGE}>Auto</option>
             )}
             {Object.entries(SUPPORTED_LANGUAGES).map(([key, literal ]) => (
