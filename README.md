@@ -5,6 +5,12 @@
 
 Dado que la integración con la API de ChatGPT es un componente clave del proyecto, es importante tener en cuenta que pueden surgir problemas relacionados con el uso de la API. Estos problemas pueden incluir:
 
+
+- **Límites de Uso de la API**: La API de ChatGPT puede tener límites de uso o cuotas que podrían afectar la disponibilidad del servicio.
+- **Cambios en la API**: Las actualizaciones o cambios en la API de ChatGPT pueden provocar incompatibilidades o fallos en la funcionalidad.
+- **Costo de la API**: El uso extensivo de la API puede incurrir en costos que no están cubiertos en este proyecto.
+
+
 ## Descripción del Proyecto
 
 El clon de Google Translate permite a los usuarios ingresar texto, seleccionar idiomas y obtener traducciones. El proyecto incluye una serie de características avanzadas como la conversión de texto a voz y la integración con ChatGPT.
